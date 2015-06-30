@@ -14,13 +14,6 @@ in application.rb
 require 'mongoid'
 Mongoid.load!(File.expand_path('mongoid.yml', './config'))
 
-
-##################
-
-root_section_node = SectionNode.create()
-home_section      = Section.create(name: "My Site", path: "/", section_node: root_section_node)
-home_page         = Page.create(name: "Home", path: "/home", template_file_name: "default.html.erb", section_node: root_section_node)
-
 ##################
 
 class SectionNode
@@ -51,6 +44,7 @@ class Page
   include Mongoid::Versioning
   
   belongs_to :section_node, :as => :linkable
+  has_many :connectors
   
   field :name,                type: String
   field :title,               type: String
@@ -65,7 +59,6 @@ class Page
   field :valid_to,            type: DateTime
 end
 
-
 class Link
   include Mongoid::Document
   include Mongoid::Versioning
@@ -74,12 +67,25 @@ class Link
 end
 
 
-
 class ContentBlock
   include Mongoid::Document
   include Mongoid::Versioning
   embeds_many :attachments, as: :attachable
+  has_many :connectors, as: :connectable
 end
+
+
+
+class Connectors
+  include Mongoid::Document
+  
+  belongs_to :page
+  belongs_to :connectable, polymorphic: true
+  
+  field :container, type: String
+end
+
+
 
 class Attachment
   include Mongoid::Document

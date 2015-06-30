@@ -9,6 +9,8 @@
     <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   </head>
   <body>
-    <%= container :main %>
+    <% Page.first.connectors.where(container: "main").each do |connector| %>
+      <%= connector.to_json %>
+    <% end %>
   </body>
 </html>

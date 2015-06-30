@@ -3,6 +3,7 @@ class Page
   include Mongoid::Versioning
   
   has_one :section_node, :as => :linkable
+  has_many :connectors
   
   field :name,                type: String
   field :title,               type: String
