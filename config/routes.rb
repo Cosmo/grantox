@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   root 'pages#index'
   
   resources :pages
+  resources :text_content_blocks
+  resources :text_with_title_content_blocks
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

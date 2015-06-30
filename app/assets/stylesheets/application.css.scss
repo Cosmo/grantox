@@ -13,3 +13,15 @@
  *= require_tree .
  *= require_self
  */
+
+.cms-edit-border {
+  border: 1px solid black;
+  margin-bottom: 1.5em;
+  .cms-edit-toolbar {
+    background-color: #CCCCCC;
+    border-bottom: 1px solid #000000;
+    .cms-edit-toolbar-button {
+      
+    }
+  }
+}
