@@ -9,11 +9,17 @@ gem 'mongoid-tree', :require => 'mongoid/tree'
 bundle install
 rails g mongoid:config
 
+in application.rb
+
+require 'mongoid'
+Mongoid.load!(File.expand_path('mongoid.yml', './config'))
+
+
 ##################
 
-Page
-
-SectionNode(linkable: )
+root_section_node = SectionNode.create()
+home_section      = Section.create(name: "My Site", path: "/", section_node: root_section_node)
+home_page         = Page.create(name: "Home", path: "/home", template_file_name: "default.html.erb", section_node: root_section_node)
 
 ##################
 
@@ -23,7 +29,7 @@ class SectionNode
   include Mongoid::Tree::Ordering
   include Mongoid::Tree::Traversal
   
-  belongs_to :linkable, :polymorphic => true
+  has_many :linkables, :polymorphic => true
   
   field :slug,  type: String
 end
@@ -32,7 +38,7 @@ end
 class Section
   include Mongoid::Document
   
-  has_one :section_node, :as => :linkable
+  belongs_to :section_node, :as => :linkable
   
   field :name,    type: String
   field :path,    type: String
@@ -44,7 +50,7 @@ class Page
   include Mongoid::Document
   include Mongoid::Versioning
   
-  has_one :section_node, :as => :linkable
+  belongs_to :section_node, :as => :linkable
   
   field :name,                type: String
   field :title,               type: String
@@ -64,7 +70,7 @@ class Link
   include Mongoid::Document
   include Mongoid::Versioning
   
-  has_one :section_node, :as => :linkable
+  belongs_to :section_node, :as => :linkable
 end
 
 
