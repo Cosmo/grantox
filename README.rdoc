@@ -1,0 +1,82 @@
+rails new cosmerner --skip-active-record
+
+gem 'mongoid'
+gem 'bson_ext'
+
+gem 'mongoid-versioning'
+gem 'mongoid-tree', :require => 'mongoid/tree'
+
+bundle install
+rails g mongoid:config
+
+##################
+
+Page
+
+SectionNode(linkable: )
+
+##################
+
+class SectionNode
+  include Mongoid::Document
+  include Mongoid::Tree
+  include Mongoid::Tree::Ordering
+  include Mongoid::Tree::Traversal
+  
+  belongs_to :linkable, :polymorphic => true
+  
+  field :slug,  type: String
+end
+
+
+class Section
+  include Mongoid::Document
+  
+  has_one :section_node, :as => :linkable
+  
+  field :name,    type: String
+  field :path,    type: String
+  field :hidden,  type: Boolean, default: false
+end
+
+
+class Page
+  include Mongoid::Document
+  include Mongoid::Versioning
+  
+  has_one :section_node, :as => :linkable
+  
+  field :name,                type: String
+  field :title,               type: String
+  field :path,                type: String
+  field :template_file_name,  type: String
+  field :description,         type: String
+  field :keywords,            type: String
+  field :archived,            type: Boolean, default: false
+  field :published,           type: Boolean, default: false
+  
+  field :valid_from,          type: DateTime
+  field :valid_to,            type: DateTime
+end
+
+
+class Link
+  include Mongoid::Document
+  include Mongoid::Versioning
+  
+  has_one :section_node, :as => :linkable
+end
+
+
+
+class ContentBlock
+  include Mongoid::Document
+  include Mongoid::Versioning
+  embeds_many :attachments, as: :attachable
+end
+
+class Attachment
+  include Mongoid::Document
+  embedded_in :attachable, polymorphic: true
+end
+
