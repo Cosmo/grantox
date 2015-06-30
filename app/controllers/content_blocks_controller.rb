@@ -3,7 +3,7 @@ class ContentBlocksController < ApplicationController
   
   def destroy
     @content_block.destroy
-    render :back
+    redirect_to :back
   end
   
   private

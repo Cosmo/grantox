@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   root 'pages#index'
   
   resources :pages
+  resources :connectors
   resources :text_content_blocks
   resources :text_with_title_content_blocks
 
