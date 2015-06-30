@@ -5,4 +5,8 @@ class Connector
   belongs_to :connectable, polymorphic: true
   
   field :container, type: String
+  
+  def render_view
+    self.connectable.render_view
+  end
 end
