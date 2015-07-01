@@ -17,6 +17,6 @@ class Page < Node
   field :valid_to,            type: DateTime
   
   def computed_title
-    self.title || self.name
+    self.title.present? ? self.title : self.name
   end
 end
