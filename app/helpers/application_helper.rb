@@ -37,10 +37,9 @@ module ApplicationHelper
   def render_editable_view(connector)
     content_tag(:div, class: "cms-edit-border") do
       @content = content_tag(:div, class: "cms-edit-toolbar") do
-        link_to("Remove", connector_path(connector), method: :delete)
-        # content_tag(:a, class: "cms-edit-toolbar-button", href: "#") do
-        #   "Remove"
-        # end
+        @buttons = link_to("Edit", send(:"edit_#{connector.connectable.class.to_s.underscore}_path", connector.connectable))
+        @buttons << ", "
+        @buttons << link_to("Remove", connector_path(connector), method: :delete)
       end
       @content << content_tag(:div, connector.render_view, class: "cms-edit-content")
     end

@@ -1,6 +1,6 @@
 class ContentBlocksController < ApplicationController
   prepend_view_path 'app/views/connectables'
-  before_action :find_content_block, only: [:destroy]
+  before_action :find_content_block, only: [:edit, :update, :destroy]
   
   # def destroy
   #   @content_block.destroy
@@ -11,6 +11,14 @@ class ContentBlocksController < ApplicationController
     @page_id        = params[:page_id]
     @container      = params[:container]
     @content_block  = params[:controller].singularize.classify.constantize.new
+  end
+  
+  def edit
+  end
+  
+  def update
+    @content_block.update_attributes(content_block_params)
+    redirect_to "/"
   end
   
   def create
