@@ -1,6 +1,4 @@
 class PagesController < ApplicationController
-  layout "layouts/templates/default"
-  
   def index
     redirect_to "/home"
   end
@@ -12,6 +10,10 @@ class PagesController < ApplicationController
       @section = Section.where(path: path).first
       @page = @section.children.to_a.find { |child| child.class == Page }
     end
+    
+    render layout: "layouts/templates/#{@page.template_file_name}"
+  end
+  
   def new
     @section_id         = params[:section_id]
     @selected_section   = Section.find(@section_id)
