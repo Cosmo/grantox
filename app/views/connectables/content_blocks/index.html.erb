@@ -26,6 +26,7 @@
       </td>
       <td>
         <%= link_to "Edit", edit_content_block_path(content_block) %>
+        <%= link_to "Delete", content_block_path(content_block), method: "DELETE" %>
       </td>
     </tr>
   <% end %>

@@ -2,10 +2,11 @@ class ContentBlocksController < ApplicationController
   prepend_view_path 'app/views/connectables'
   before_action :find_content_block, only: [:edit, :update, :destroy]
   
-  # def destroy
-  #   @content_block.destroy
-  #   redirect_to :back
-  # end
+  def destroy
+    @content_block.connectors.destroy_all
+    @content_block.destroy
+    redirect_to :back
+  end
   
   def index
     @content_blocks = ContentBlock.all
