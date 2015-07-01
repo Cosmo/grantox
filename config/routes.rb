@@ -15,6 +15,7 @@ Rails.application.routes.draw do
       post "add"
     end
   end
+  resources :rss_content_blocks
   resources :text_content_blocks
   resources :text_with_title_content_blocks
   resources :text_with_sidebar_content_blocks

@@ -21,7 +21,16 @@
     
     <%= render_menu %>
     
-    <%= container(:main) %>
+    <table style="width: 100%;">
+      <tr>
+        <td width="50%">
+          <%= container(:main) %>
+        </td>
+        <td width="50%">
+          <%= container(:sidebar) %>
+        </td>
+      </tr>
+    </table>
     
     <% if session[:visual_edit] %>
       <%= render :file => "app/views/cms/sitemap.html.erb" %>

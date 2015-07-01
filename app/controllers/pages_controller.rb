@@ -19,7 +19,22 @@ class PagesController < ApplicationController
     @selected_section   = Section.find(@section_id)
     @page               = Page.new
     @page.path          = @selected_section.path
-    @templates          = Dir["#{Rails.root}/app/views/layouts/templates/**/*.html.erb"].map { |m| File.basename(m, ".*") }
+  end
+  
+  def edit
+    @page = Page.find(params[:id])
+  end
+  
+  def update
+    @page = Page.find(params[:id])
+    @page.update(page_params)
+    redirect_to @page.path
+  end
+  
+  def destroy
+    @page = Page.find(params[:id])
+    @page.destroy
+    redirect_to root_path
   end
   
   def create

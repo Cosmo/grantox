@@ -1,0 +1,2 @@
+class RssContentBlocksController < ContentBlocksController
+end

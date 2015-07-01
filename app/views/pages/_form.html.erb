@@ -21,7 +21,7 @@
 <div>
   <%= f.label :template_file_name %>
   <br />
-  <%= f.select :template_file_name, @templates %>
+  <%= f.select :template_file_name, Dir["#{Rails.root}/app/views/layouts/templates/**/*.html.erb"].map { |m| File.basename(m, ".*") } %>
 </div>
 
 <%= hidden_field_tag :section_id, @section_id %>
