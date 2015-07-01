@@ -1,0 +1,27 @@
+<div>
+  <%= f.label :name %>
+  <br />
+  <%= f.text_field :name %>
+</div>
+
+<hr />
+
+<div>
+  <%= f.label :title %>
+  <br />
+  <%= f.text_field :title, placeholder: "Defaults to 'name'" %>
+</div>
+
+<div>
+  <%= f.label :path %>
+  <br />
+  <%= f.text_field :path %>
+</div>
+
+<div>
+  <%= f.label :template_file_name %>
+  <br />
+  <%= f.select :template_file_name, @templates %>
+</div>
+
+<%= hidden_field_tag :section_id, @section_id %>
