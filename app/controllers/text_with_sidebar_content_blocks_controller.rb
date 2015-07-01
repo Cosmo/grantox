@@ -1,0 +1,2 @@
+class TextWithSidebarContentBlocksController < ContentBlocksController
+end

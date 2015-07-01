@@ -48,6 +48,9 @@ ul.nodes {
   list-style: none;
   margin: 0;
   padding: 0;
+  small {
+    opacity: 0.4;
+  }
   li {
     margin: 0;
     padding: 0;

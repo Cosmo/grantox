@@ -2,11 +2,12 @@
   <span class="node-line page-line">
     <span class="node-name page-name">
       <%= page.name %>
-      <% if page.parent.path == page.path %>
-        <small>
+      <small>
+        <% if page.parent.path == page.path %>
           Default
-        </small>
-      <% end %>
+        <% end %>
+        Page
+      </small>
     </span>
     <span class="node-options page-options">
       <%= link_to "Show", page.path %>
