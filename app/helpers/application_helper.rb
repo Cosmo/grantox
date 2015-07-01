@@ -26,7 +26,7 @@ module ApplicationHelper
   
   def connector_toolbar(container_name, page)
     content_tag(:div, class: "cms-page-edit-toolbar") do
-      @buttons = link_to("Add", new_connector_path(container: container_name, page_id: page.id))
+      @buttons = link_to("+", new_connector_path(container: container_name, page_id: page.id))
     end
   end
   
