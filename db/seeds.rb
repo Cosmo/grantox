@@ -32,8 +32,8 @@ company_section.children << history_page
 
 ## Home Content #########
 
-text_with_title_content_block = TextWithTitleContentBlock.create(title: "Welcome", body: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.")
+text_with_title_content_block = TextWithTitleContentBlock.create(name: "welcome", title: "Welcome", body: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.")
 Connector.create(page: home_page, connectable: text_with_title_content_block, container: "main")
 
-text_content_block = TextContentBlock.create(body: "Ok, cool cool.")
+text_content_block = TextContentBlock.create(name: "cool", body: "Ok, cool cool.")
 Connector.create(page: home_page, connectable: text_content_block, container: "main")
