@@ -63,6 +63,10 @@ module ApplicationHelper
     ActionController::Base.helpers.raw menu
   end
   
+  def cms_head
+    content_tag(:title, @page.computed_title)
+  end
+  
   def cms_toolbar
     render :file => "app/views/cms/toolbar.html.erb"
   end

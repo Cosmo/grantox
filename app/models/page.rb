@@ -15,4 +15,8 @@ class Page < Node
   
   field :valid_from,          type: DateTime
   field :valid_to,            type: DateTime
+  
+  def computed_title
+    self.title || self.name
+  end
 end
