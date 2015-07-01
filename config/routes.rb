@@ -10,10 +10,16 @@ Rails.application.routes.draw do
   resources :pages
   resources :links
   
-  resources :connectors
+  resources :connectors do
+    collection do
+      post "add"
+    end
+  end
   resources :text_content_blocks
   resources :text_with_title_content_blocks
   resources :text_with_sidebar_content_blocks
+  
+  resources :content_blocks
   
   get "visual_edit_mode", to: "application#visual_edit_mode"
   

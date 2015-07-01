@@ -7,6 +7,10 @@ class ContentBlocksController < ApplicationController
   #   redirect_to :back
   # end
   
+  def index
+    @content_blocks = ContentBlock.all
+  end
+  
   def new
     @page_id        = params[:page_id]
     @container      = params[:container]

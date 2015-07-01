@@ -1,0 +1,15 @@
+<ul>
+  <% @content_blocks.each do |content_block| %>
+    <li style="margin-bottom: 1.5em;">
+      <div style="background-color: #F1F1F1;">
+        <%= content_block.to_json %>
+      </div>
+      <div>
+        used in: <%= content_block.connectors.map { |c| link_to c.page.name, c.page.path }.join(", ").html_safe %>
+      </div>
+      <div>
+        <%= link_to "Edit", edit_content_block_path(content_block) %>
+      </div>
+    </li>
+  <% end %>
+</ul>
