@@ -7,6 +7,7 @@
       </small>
     </span>
     <span class="node-options section-options">
+      <%= link_to "+ Page", new_page_path(section_id: section.id) %>
     </span>
   </span>
   <% if section.children.present? %>
