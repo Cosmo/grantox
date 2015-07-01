@@ -10,21 +10,15 @@
     <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   </head>
   <body>
+    <%= cms_toolbar %>
+    
+    <%= render_menu %>
+    
     <%= container(:main) %>
-    <hr />
-    <ul class="nodes">
-      <% Node.roots.each do |node| %>
-        <%= render node %>
-      <% end %>
-    </ul>
-    <hr />
-    visual edit mode:
+    
     <% if session[:visual_edit] %>
-      on
-      <a href="/visual_edit_mode/?state=off">off</a>
-    <% else %>
-      <a href="/visual_edit_mode/?state=on">on</a>
-      off
+      <%= render :file => "app/views/cms/sitemap.html.erb" %>
     <% end %>
+    
   </body>
 </html>

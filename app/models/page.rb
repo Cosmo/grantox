@@ -1,4 +1,6 @@
 class Page < Node
+  include Mongoid::Versioning
+  
   belongs_to :section
   has_many :connectors
   
