@@ -17,5 +17,14 @@
         <%= render node %>
       <% end %>
     </ul>
+    <hr />
+    visual edit mode:
+    <% if session[:visual_edit] %>
+      on
+      <a href="/visual_edit_mode/?state=off">off</a>
+    <% else %>
+      <a href="/visual_edit_mode/?state=on">on</a>
+      off
+    <% end %>
   </body>
 </html>

@@ -1,15 +1,14 @@
 module ApplicationHelper
   def container(container_name)
     output = []
-    editable = true
     
     if @page.present?
-      if editable
+      if visual_edit
         output << connector_toolbar(container_name, @page)
       end
       
       @page.connectors.where(container: container_name.to_s).each do |connector|
-        if editable
+        if visual_edit
           connectable_view = render_editable_view(connector)
         else
           connectable_view = render_view(connector)
@@ -17,7 +16,7 @@ module ApplicationHelper
         output << connectable_view
       end
       
-      if editable
+      if visual_edit
         output << connector_toolbar(container_name, @page)
       end
     end

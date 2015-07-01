@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   resources :text_content_blocks
   resources :text_with_title_content_blocks
   
+  get "visual_edit_mode", to: "application#visual_edit_mode"
+  
   match "*path", to: "pages#show", via: :all
 
   # Example of regular route:
