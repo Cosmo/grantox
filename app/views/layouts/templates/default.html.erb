@@ -11,5 +11,11 @@
   </head>
   <body>
     <%= container(:main) %>
+    <hr />
+    <ul class="nodes">
+      <% Node.roots.each do |node| %>
+        <%= render node %>
+      <% end %>
+    </ul>
   </body>
 </html>

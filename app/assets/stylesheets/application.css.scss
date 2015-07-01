@@ -14,6 +14,17 @@
  *= require_self
  */
 
+body {
+  font-family: "Helvetica Neue";
+}
+
+.cms-page-edit-toolbar {
+  border: 1px solid black;
+  margin-bottom: 1.5em;
+  background-color: #CCCCCC;
+  border-bottom: 1px solid #000000;
+}
+
 .cms-edit-border {
   border: 1px solid black;
   margin-bottom: 1.5em;
@@ -22,6 +33,93 @@
     border-bottom: 1px solid #000000;
     .cms-edit-toolbar-button {
       
+    }
+  }
+}
+
+ul.nodes {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  li {
+    margin: 0;
+    padding: 0;
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+  }
+  .node {
+    &.node-depth-0.section {
+      .node-line {
+        padding-left: 5px;
+      }
+      ul .node-line {
+        padding-left: 25px;
+      }
+    }
+    &.node-depth-1.section {
+      .node-line {
+        padding-left: 25px;
+      }
+      ul .node-line {
+        padding-left: 45px;
+      }
+    }
+    &.node-depth-2.section {
+      .node-line {
+        padding-left: 45px;
+      }
+      ul .node-line {
+        padding-left: 65px;
+      }
+    }
+    &.node-depth-3.section {
+      .node-line {
+        padding-left: 65px;
+      }
+      ul .node-line {
+        padding-left: 85px;
+      }
+    }
+    &.node-depth-4.section {
+      .node-line {
+        padding-left: 85px;
+      }
+      ul .node-line {
+        padding-left: 105px;
+      }
+    }
+    
+    
+    
+    .node-line {
+      display: block;
+      padding: 5px;
+      margin-bottom: 1px;
+      .node-name {
+      }
+      .node-options {
+      }
+    }
+  }
+  .section {
+    .section-line {
+      background-color: #6DCCF8;
+      .section-name {
+      }
+      .section-options {
+      }
+    }
+  }
+  .page {
+    .page-line {
+      background-color: #FDC700;
+      .page-name {
+      }
+      .page-options {
+      }
     }
   }
 }

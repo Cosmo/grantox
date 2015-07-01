@@ -1,8 +1,5 @@
-class Page
-  include Mongoid::Document
-  include Mongoid::Versioning
-  
-  has_one :section_node, :as => :linkable
+class Page < Node
+  belongs_to :section
   has_many :connectors
   
   field :name,                type: String

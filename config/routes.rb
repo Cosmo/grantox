@@ -5,10 +5,16 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'pages#index'
   
+  resources :nodes
+  resources :sections
   resources :pages
+  resources :links
+  
   resources :connectors
   resources :text_content_blocks
   resources :text_with_title_content_blocks
+  
+  match "*path", to: "pages#show", via: :all
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

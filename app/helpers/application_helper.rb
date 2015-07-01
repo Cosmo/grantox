@@ -1,16 +1,34 @@
 module ApplicationHelper
   def container(container_name)
     output = []
-    Page.first.connectors.where(container: container_name.to_s).each do |connector|
-      editable = true
+    editable = true
+    
+    if @page.present?
       if editable
-        connectable_view = render_editable_view(connector)
-      else
-        connectable_view = render_view(connector)
+        output << connector_toolbar(container_name, @page)
       end
-      output << connectable_view
+      
+      @page.connectors.where(container: container_name.to_s).each do |connector|
+        if editable
+          connectable_view = render_editable_view(connector)
+        else
+          connectable_view = render_view(connector)
+        end
+        output << connectable_view
+      end
+      
+      if editable
+        output << connector_toolbar(container_name, @page)
+      end
     end
+    
     ActionController::Base.helpers.raw output.join("")
+  end
+  
+  def connector_toolbar(container_name, page)
+    content_tag(:div, class: "cms-page-edit-toolbar") do
+      link_to("Add", new_connector_path(container: container_name, page_id: page.id))
+    end
   end
   
   def render_view(connector)

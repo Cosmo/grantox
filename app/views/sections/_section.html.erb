@@ -1,0 +1,14 @@
+<li class="node node-depth-<%= section.depth %> section">
+  <span class="node-line section-line">
+    <span class="node-name section-name">
+      <%= section.name %>
+    </span>
+    <span class="node-options section-options">
+    </span>
+  </span>
+  <% if section.children.present? %>
+    <ul>
+      <%= render section.children %>
+    </ul>
+  <% end %>
+</li>

@@ -1,10 +1,12 @@
 class PagesController < ApplicationController
   layout "layouts/templates/default"
+  
   def index
-    redirect_to page_path("/")
+    redirect_to "/home"
   end
   
   def show
-    @page = Page.where(path: "/").first
+    path = "/#{params[:path]}"
+    @page = Page.where(path: path).first
   end
 end
