@@ -40,6 +40,8 @@ module ApplicationHelper
         @buttons = link_to("Edit", send(:"edit_#{connector.connectable.class.to_s.underscore}_path", connector.connectable))
         @buttons << ", "
         @buttons << link_to("Remove", connector_path(connector), method: :delete)
+        @buttons << ", "
+        @buttons << "(#{connector.connectable.class.display_name})"
       end
       @content << content_tag(:div, connector.render_view, class: "cms-edit-content")
     end
