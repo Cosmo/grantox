@@ -1,0 +1,33 @@
+<h2>Create new</h2>
+
+<ul>
+  <% @connectables.each do |connectable| %>
+    <li>
+      <%= link_to connectable.display_name, send(:"new_#{connectable.to_s.demodulize.underscore}_path", container: @container, page_id: @page_id) %>
+    </li>
+  <% end %>
+</ul>
+
+<hr />
+
+<h2>Add existing</h2>
+
+<% if @content_blocks.present? %>
+  <ul style="list-style: none; margin: 0; padding: 0; ">
+    <% @content_blocks.each do |connectable| %>
+      <li>
+        <div style="background-color: #F1F1F1; border: 1px solid #CCCCCC; padding: 10px; margin-bottom: 1.5em;">
+          <%= link_to "add", add_connectors_path(page_id: @page_id, container: @container, connectable_type: connectable.class, connectable_id: connectable.id), method: "POST" %>
+          <hr />
+          <strong><%= connectable.name %></strong>
+          <br />
+          <%= connectable.render_view %>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>
+    No found.
+  </p>
+<% end %>

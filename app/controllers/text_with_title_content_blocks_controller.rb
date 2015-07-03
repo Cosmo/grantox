@@ -1,2 +1,0 @@
-class TextWithTitleContentBlocksController < ContentBlocksController
-end

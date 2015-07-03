@@ -1,0 +1,28 @@
+<li class="node page">
+  <span class="node-line page-line">
+    <span class="node-name page-name">
+      <%= page.name %>
+      <small>
+        <% if page.parent.path == page.path %>
+          Default
+        <% end %>
+        Page
+      </small>
+      <br />
+      <% if page.connectors.present? %>
+        <ul style="background-color: rgba(0, 0, 0, 0.4); padding: 2px 2px 1px 2px;">
+          <% page.connectors.each do |connector| %>
+            <li style="background-color: rgba(255, 255, 255, 0.6); padding: 2px 5px; margin-bottom: 1px;">
+              <%= connector.connectable.class.display_name %> <%= link_to "Edit", send(:"edit_#{connector.connectable.class.to_s.demodulize.to_s.underscore}_path", connector.connectable) %>
+            </li>
+          <% end %>
+        </ul>
+      <% end %>
+    </span>
+    <span class="node-options page-options">
+      <%= link_to "Show", page.path %>
+      <%= link_to "Edit", edit_page_path(page) %>
+      <%= link_to "Delete", page_path(page) %>
+    </span>
+  </span>
+</li>

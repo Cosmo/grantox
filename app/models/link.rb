@@ -1,2 +1,0 @@
-class Link < Node
-end

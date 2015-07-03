@@ -1,0 +1,209 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require jquery-ui
+ *= require_tree .
+ *= require_self
+ */
+
+body {
+  font-family: "Helvetica Neue";
+}
+
+.cms-toolbar {
+  padding: 10px;
+  border-top: 1px solid #807E80;
+  margin: 0 -10px -10px -10px;
+}
+
+.cms-page-edit-toolbar {
+  margin-bottom: 10px;
+  margin-left: 50px;
+  margin-right: 50px;
+  font-size: 60px;
+  text-align: center;
+  font-weight: bold;
+  a {
+    border: 1px solid black;
+    border-radius: 20px;
+    text-decoration: none;
+    display: block;
+    background-color: #CCCCCC;
+    &:hover {
+      background-color: #000000;
+      color: #FFFFFF;
+    }
+  }
+}
+
+.content-blocks {
+  .content-block-placeholder {
+    border: 2px dashed #CCCCCC;
+    background-color: #F1F1F1;
+    border-radius: 10px;
+    min-height: 60px;
+    margin-bottom: 1.5em;
+    &:before {
+      color: #6C6C6C;
+      content: "Place block here.";
+      min-height: 60px;
+      text-align: center;
+      line-height: 60px;
+      width: 100%;
+      display: block;
+    }
+  }
+}
+
+@keyframes example {
+    from {
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 1.0);
+    }
+    to {
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+    }
+}
+
+.cms-edit-border {
+  transition: box-shadow 0.25s;
+  border: 1px solid #CCCCCC;
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0.0);
+  margin-bottom: 1.5em;
+  
+  cursor: move; /* fallback if grab cursor is unsupported */
+  cursor: grab;
+  cursor: -moz-grab;
+  cursor: -webkit-grab;
+  
+  &:active {
+    cursor: grabbing;
+    cursor: -moz-grabbing;
+    cursor: -webkit-grabbing;
+  }
+  
+  .cms-edit-toolbar {
+    background-color: #CCCCCC;
+    line-height: 2em;
+    height: 0;
+    overflow: hidden;
+    transition: background-color 0.25s, height 0.25s;
+    .cms-edit-toolbar-button {
+      
+    }
+  }
+  &:hover {
+    background-color: #F1F1F1;
+    
+    animation-name: example;
+    animation-duration: 1.0s;
+    animation-timing-function: linear;
+    animation-delay: 0;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    
+    .cms-edit-toolbar {
+      height: 2em;
+    }
+  }
+}
+
+ul.nodes {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  small {
+    opacity: 0.4;
+  }
+  li {
+    margin: 0;
+    padding: 0;
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+  }
+  .node {
+    &.node-depth-0.section {
+      .node-line {
+        padding-left: 5px;
+      }
+      ul .node-line {
+        padding-left: 25px;
+      }
+    }
+    &.node-depth-1.section {
+      .node-line {
+        padding-left: 25px;
+      }
+      ul .node-line {
+        padding-left: 45px;
+      }
+    }
+    &.node-depth-2.section {
+      .node-line {
+        padding-left: 45px;
+      }
+      ul .node-line {
+        padding-left: 65px;
+      }
+    }
+    &.node-depth-3.section {
+      .node-line {
+        padding-left: 65px;
+      }
+      ul .node-line {
+        padding-left: 85px;
+      }
+    }
+    &.node-depth-4.section {
+      .node-line {
+        padding-left: 85px;
+      }
+      ul .node-line {
+        padding-left: 105px;
+      }
+    }
+    
+    
+    
+    .node-line {
+      display: block;
+      padding: 5px;
+      margin-bottom: 1px;
+      .node-name {
+        display: block;
+      }
+      .node-options {
+        display: block;
+      }
+    }
+  }
+  .section {
+    .section-line {
+      background-color: #6DCCF8;
+      .section-name {
+      }
+      .section-options {
+      }
+    }
+  }
+  .page {
+    .page-line {
+      background-color: #FDC700;
+      .page-name {
+      }
+      .page-options {
+      }
+    }
+  }
+}
