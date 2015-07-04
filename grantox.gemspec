@@ -22,4 +22,5 @@ Gem::Specification.new do |s|
   s.add_dependency 'bson_ext'
   s.add_dependency 'mongoid-versioning'
   s.add_dependency 'mongoid-tree'
+  s.add_dependency 'RedCloth'
 end

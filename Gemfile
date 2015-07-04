@@ -17,3 +17,4 @@ gem "mongoid"
 gem 'bson_ext'
 gem 'mongoid-versioning'
 gem 'mongoid-tree', :require => 'mongoid/tree'
+gem "RedCloth"

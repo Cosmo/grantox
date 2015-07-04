@@ -2,11 +2,17 @@ PATH
   remote: .
   specs:
     grantox (0.0.1)
+      RedCloth
+      bson_ext
+      mongoid (= 4.0.2)
+      mongoid-tree
+      mongoid-versioning
       rails (~> 4.2.3)
 
 GEM
   remote: https://rubygems.org/
   specs:
+    RedCloth (4.2.9)
     actionmailer (4.2.3)
       actionpack (= 4.2.3)
       actionview (= 4.2.3)
@@ -43,7 +49,10 @@ GEM
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
     arel (6.0.0)
+    bson (3.1.1)
+    bson_ext (1.5.1)
     builder (3.2.2)
+    connection_pool (2.2.0)
     erubis (2.7.0)
     globalid (0.3.5)
       activesupport (>= 4.1.0)
@@ -56,8 +65,24 @@ GEM
     mime-types (2.6.1)
     mini_portile (0.6.2)
     minitest (5.7.0)
+    mongoid (4.0.2)
+      activemodel (~> 4.0)
+      moped (~> 2.0.0)
+      origin (~> 2.1)
+      tzinfo (>= 0.3.37)
+    mongoid-tree (2.0.0)
+      mongoid (>= 4.0, <= 5.0)
+    mongoid-versioning (1.0.0)
+      activesupport
+      mongoid (~> 4.0.0)
+    moped (2.0.6)
+      bson (~> 3.0)
+      connection_pool (~> 2.0)
+      optionable (~> 0.2.0)
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
+    optionable (0.2.0)
+    origin (2.1.1)
     rack (1.6.4)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -101,4 +126,9 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  RedCloth
+  bson_ext
   grantox!
+  mongoid
+  mongoid-tree
+  mongoid-versioning
