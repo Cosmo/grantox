@@ -47,7 +47,7 @@ module Grantox
           @buttons << ", "
           @buttons << link_to("Remove", connector_path(connector), method: :delete)
           @buttons << ", "
-          @buttons << "(#{connector.connectable.class.display_name})"
+          @buttons << "<strong>#{connector.connectable.class.display_name}</strong>: #{connector.connectable.name}".html_safe
         end
         @content << content_tag(:div, connector.render_view, class: "cms-edit-content")
       end
