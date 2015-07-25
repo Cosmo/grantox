@@ -14,11 +14,10 @@ Grantox::Engine.routes.draw do
       put "move"
     end
   end
-  resources :rss_content_blocks
-  resources :text_content_blocks
-  resources :text_with_title_content_blocks
-  resources :text_with_sidebar_content_blocks
   
+  Dir[Grantox::Engine.root.join("app/views/grantox/connectables/*")].each do |dir|
+    resources File.basename(dir).to_sym
+  end
   resources :content_blocks
   
   match "*path", to: "pages#show", via: :all
@@ -26,8 +25,6 @@ end
 
 Rails.application.routes.draw do
   get "visual_edit_mode", to: "grantox/application#visual_edit_mode"
-  
   root 'grantox/pages#index'
-  
   match "*path", to: "grantox/pages#show", via: :all
 end
