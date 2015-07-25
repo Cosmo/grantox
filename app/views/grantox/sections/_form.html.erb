@@ -1,0 +1,25 @@
+<div>
+  <%= f.label :name %>
+  <br />
+  <%= f.text_field :name %>
+</div>
+
+<hr />
+
+<div>
+  <%= f.label :path %>
+  <br />
+  <%= f.text_field :path, data: { path: @section.path } %>
+</div>
+
+<script type="text/javascript" charset="utf-8">
+  $(function() {
+    $("#section_name").on('input propertychange paste', function() {
+      if($("#section_path").val().indexOf($("#section_path").data("path")) >= 0) {
+        $("#section_path").val($("#section_path").data("path") + "/" + $("#section_name").val().toLowerCase())
+      }
+    });
+  })
+</script>
+
+<%= hidden_field_tag :section_id, @section_id %>

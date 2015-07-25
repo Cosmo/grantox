@@ -8,6 +8,8 @@
     </span>
     <span class="node-options section-options">
       <%= link_to "+ Page", new_page_path(section_id: section.id) %>
+      <%= link_to "+ Section", new_section_path(section_id: section.id) %>
+      <%= link_to "Delete", section_path(section), method: :delete %>
     </span>
   </span>
   <% if section.children.present? %>
