@@ -16,23 +16,9 @@
 //= require_tree .
 
 $(function() {
-  // var el = document.getElementById('content-blocks');
-  // var sortable = Sortable.create(el, {
-  //   animation: 150, 
-  //   ghostClass: "sortable-ghost",
-  //   onEnd: function (evt) {
-  //     alert(evt.oldIndex + " " + evt.newIndex);
-  //     
-  //   },
-  // });
-  
   $(".content-blocks").sortable({
     placeholder: "content-block-placeholder",
     update: function(event, ui) {
-      // alert(ui.item)
-      console.log(ui.item.index());
-      console.log(ui.item.data("move-path"));
-      
       $.ajax({
         method: "PUT",
         url: ui.item.data("move-path"),
