@@ -1,3 +1,67 @@
 = Grantox
 
 This project rocks and uses MIT-LICENSE.
+
+
+= Setup
+
+Create new rails project:
+rails new myapp --skip-active-record
+rails g mongoid:config
+
+In Gemfile:
+gem "mongoid"
+gem 'bson_ext'
+gem 'mongoid-versioning'
+gem 'mongoid-tree', :require => 'mongoid/tree'
+gem 'RedCloth'
+gem 'grantox', path: "/Users/Devran/Sites/Git/grantox"
+
+
+In Routes:
+mount Grantox::Engine, at: "/cms"
+
+
+
+In Seeds:
+puts "Loading CMS seeds"
+
+home_section      = Grantox::Section.create(name: "My Site", path: "/home")
+home_page         = Grantox::Page.new(name: "Home", path: "/home", template_file_name: "default.html.erb")
+home_section.children << home_page
+
+projects_section = Grantox::Section.create(name: "Projects", path: "/projects")
+home_section.children << projects_section
+
+projects_2014_section = Grantox::Section.create(name: "2014", path: "/projects/2014")
+projects_section.children << projects_2014_section
+
+projects_2015_section = Grantox::Section.create(name: "2015", path: "/projects/2015")
+projects_section.children << projects_2015_section
+
+
+
+jobs_section = Grantox::Section.create(name: "Jobs", path: "/jobs")
+home_section.children << jobs_section
+
+company_section = Grantox::Section.create(name: "Company", path: "/company")
+home_section.children << company_section
+
+company_page    = Grantox::Page.create(name: "Company", path: "/company", template_file_name: "default.html.erb")
+company_section.children << company_page
+
+about_us_page    = Grantox::Page.create(name: "About Us", path: "/company/about_us", template_file_name: "default.html.erb")
+company_section.children << about_us_page
+
+history_page    = Grantox::Page.create(name: "History", path: "/company/history", template_file_name: "default.html.erb")
+company_section.children << history_page
+
+
+
+## Home Content #########
+
+text_with_title_content_block = Grantox::TextWithTitleContentBlock.create(name: "welcome", title: "Welcome", body: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.")
+Grantox::Connector.create(page: home_page, connectable: text_with_title_content_block, container: "main")
+
+text_content_block = Grantox::TextContentBlock.create(name: "cool", body: "Ok, cool cool.")
+Grantox::Connector.create(page: home_page, connectable: text_content_block, container: "main")
