@@ -9,9 +9,9 @@ Gem::Specification.new do |s|
   s.version     = Grantox::VERSION
   s.authors     = ["Devran Ünal"]
   s.email       = ["devran@me.com"]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of Grantox."
-  s.description = "TODO: Description of Grantox."
+  s.homepage    = "http://grantox.com"
+  s.summary     = "A CMS."
+  s.description = "Grantox is a modular CMS. Like Lego bricks."
   s.license     = "MIT"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
