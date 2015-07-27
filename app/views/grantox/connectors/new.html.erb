@@ -3,7 +3,7 @@
 <ul>
   <% @connectables.each do |connectable| %>
     <li>
-      <%= link_to connectable.display_name, send(:"new_#{connectable.to_s.demodulize.underscore}_path", container: @container, page_id: @page_id) %>
+      <%= link_to connectable.display_name, send(:"new_#{connectable.path_name}_path", container: @container, page_id: @page_id) %>
     </li>
   <% end %>
 </ul>

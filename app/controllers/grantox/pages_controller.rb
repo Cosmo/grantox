@@ -35,7 +35,7 @@ module Grantox
     def destroy
       @page = Page.find(params[:id])
       @page.destroy
-      redirect_to root_path
+      redirect_to nodes_path
     end
   
     def create

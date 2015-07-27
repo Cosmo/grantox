@@ -1,5 +1,5 @@
 <%= form_for @content_block do |f| %>
-  <%= render partial: "grantox/connectables/#{@content_block.class.to_s.demodulize.underscore.pluralize}/form", locals: { f: f } %>
+  <%= render partial: "grantox/content_blocks/#{@content_block.class.path_name.pluralize}/form", locals: { f: f } %>
   
   <% if @container.present? && @page_id.present? %>
     <%= hidden_field_tag :container, @container %>

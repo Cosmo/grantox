@@ -21,7 +21,7 @@
 <div>
   <%= f.label :template_file_name %>
   <br />
-  <%= f.select :template_file_name, Dir["#{Grantox::Engine.root}/app/views/layouts/grantox/templates/**/*.html.erb"].map { |m| File.basename(m, ".*") } %>
+  <%= f.select :template_file_name, Grantox::Layout.installed %>
 </div>
 
 <%= hidden_field_tag :section_id, @section_id %>

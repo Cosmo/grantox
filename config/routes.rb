@@ -15,8 +15,8 @@ Grantox::Engine.routes.draw do
     end
   end
   
-  Dir[Grantox::Engine.root.join("app/views/grantox/connectables/*")].each do |dir|
-    resources File.basename(dir).to_sym
+  Grantox::ContentBlock.installed.each do |content_block|
+    resources content_block.to_s.to_sym
   end
   resources :content_blocks
   

@@ -14,7 +14,7 @@
           <% page.connectors.each do |connector| %>
             <li style="background-color: rgba(255, 255, 255, 0.6); padding: 2px 5px; margin-bottom: 1px;">
               <%= "<strong>#{connector.connectable.class.display_name}</strong>: #{connector.connectable.name}".html_safe %>
-              <%= link_to "Edit", send(:"edit_#{connector.connectable.class.to_s.demodulize.to_s.underscore}_path", connector.connectable) %>
+              <%= link_to "Edit", send(:"edit_#{connector.connectable.class.path_name}_path", connector.connectable) %>
             </li>
           <% end %>
         </ul>

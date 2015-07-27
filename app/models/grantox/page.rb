@@ -3,7 +3,7 @@ module Grantox
     include Mongoid::Versioning
 
     belongs_to :section, class_name: 'Grantox::Section'
-    has_many :connectors, class_name: 'Grantox::Connector'
+    has_many :connectors, class_name: 'Grantox::Connector', dependent: :destroy
 
     field :name,                type: String
     field :title,               type: String

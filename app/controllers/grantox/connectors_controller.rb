@@ -12,7 +12,7 @@ module Grantox
       @page_id      = params[:page_id]
       @connector    = Connector.new(container: @container, page_id: @page_id)
     
-      @connectables = Dir["#{Grantox::Engine.root}/app/models/**/*.rb"].map { |m| File.basename(m, ".*").classify }.select { |m| m.to_s =~ /.+ContentBlock$/ }.map { |m| "Grantox::#{m}".constantize }
+      @connectables = ContentBlock.installed_models
       @content_blocks = ContentBlock.all
     end
     

@@ -1,6 +1,6 @@
 module Grantox
   class ContentBlocksController < ApplicationController
-    # prepend_view_path "#{Grantox::Engine.root}/app/views/grantox/connectables"
+    # prepend_view_path "#{Grantox::Engine.root}/app/views/grantox/content_blocks"
     
     before_action :find_content_block, only: [:edit, :update, :destroy]
   
@@ -17,7 +17,7 @@ module Grantox
     def new
       @page_id        = params[:page_id]
       @container      = params[:container]
-      @content_block  = params[:controller].singularize.classify.constantize.new
+      @content_block  = ContentBlock.model_name_from_string(params[:controller]).new
     end
   
     def edit
@@ -29,7 +29,7 @@ module Grantox
     end
   
     def create
-      @content_block = params[:controller].singularize.classify.constantize.create(content_block_params)
+      @content_block = ContentBlock.model_name_from_string(params[:controller]).create(content_block_params)
     
       if params[:container].present? && params[:page_id].present?
         @container  = params[:container]
@@ -44,7 +44,7 @@ module Grantox
     private
   
     def find_content_block
-      @content_block = params[:controller].singularize.classify.constantize.find(params[:id])
+      @content_block = ContentBlock.model_name_from_string(params[:controller]).find(params[:id])
     end
   
     def content_block_params
