@@ -9,7 +9,7 @@ module Grantox
     field :name, type: String
 
     def self.display_name
-      self.to_s
+      self.to_s.demodulize.gsub("ContentBlock", "")
     end
     
     def to_s
