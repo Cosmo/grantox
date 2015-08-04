@@ -1,16 +1,15 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Grantox</title>
-  <%= stylesheet_link_tag    "grantox/application", media: "all" %>
-  <%= javascript_include_tag "grantox/application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-
-<%= render file: "grantox/cms/navigation.html.erb" %>
-
-<%= yield %>
-
-</body>
+  <head>
+    <title>Grantox</title>
+    <%= stylesheet_link_tag    "grantox/application", media: "all" %>
+    <%= javascript_include_tag "grantox/application" %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <div class="cms-bar">
+      <%= render file: "grantox/cms/navigation.html.erb" %>
+    </div>
+    <%= yield %>
+  </body>
 </html>
