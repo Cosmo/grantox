@@ -1,7 +1,5 @@
 module Grantox
   class ContentBlocksController < ApplicationController
-    # prepend_view_path "#{Grantox::Engine.root}/app/views/grantox/content_blocks"
-    
     before_action :find_content_block, only: [:edit, :update, :destroy]
   
     def destroy
