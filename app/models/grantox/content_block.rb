@@ -38,6 +38,10 @@ module Grantox
       ].map { |p| p.join("#{self.class.path_name.pluralize}/render.html.erb") }.find { |p| File.exists?(p) }
     end
     
+    def form_path
+      "grantox/content_blocks/#{self.class.path_name.pluralize}/form"
+    end
+    
     def self.installed
       [
         Dir[Rails.root.join("app/views/grantox/content_blocks/*_content_blocks")],
