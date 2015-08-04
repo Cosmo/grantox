@@ -11,13 +11,8 @@
  * file per style scope.
  *
  *= require jquery-ui
- *= require_tree .
  *= require_self
  */
-
-body {
-  font-family: "Helvetica Neue";
-}
 
 .cms-toolbar {
   padding: 10px;
@@ -64,7 +59,7 @@ body {
   }
 }
 
-@keyframes example {
+@keyframes edit-border-shadow {
     from {
       box-shadow: 0 5px 20px rgba(0, 0, 0, 1.0);
     }
@@ -102,14 +97,12 @@ body {
   }
   &:hover {
     background-color: #F1F1F1;
-    
-    animation-name: example;
+    animation-name: edit-border-shadow;
     animation-duration: 1.0s;
     animation-timing-function: linear;
     animation-delay: 0;
     animation-iteration-count: infinite;
     animation-direction: alternate;
-    
     .cms-edit-toolbar {
       height: 2em;
     }
