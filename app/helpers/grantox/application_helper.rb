@@ -25,7 +25,7 @@ module Grantox
       elsif @page.present? && @page.views_cache[container_name].present?
         ActionController::Base.helpers.raw(@page.views_cache[container_name])
       else
-        "Something went wrong. Page not found."
+        "Page has no content."
       end
     end
     
