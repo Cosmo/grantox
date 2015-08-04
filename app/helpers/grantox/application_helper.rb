@@ -44,8 +44,7 @@ module Grantox
       
       content_tag(:div, class: "cms-edit-border", data: { :"move-path" => send(:"move_connector_path", connector) }) do
         @content = content_tag(:div, class: "cms-edit-toolbar") do
-          @buttons = content_tag(:span, "#{connector.position}, ")
-          @buttons << link_to("Edit", send(:"edit_#{connectable.class.path_name}_path", connectable))
+          @buttons = link_to("Edit", send(:"edit_#{connectable.class.path_name}_path", connectable))
           @buttons << ", "
           @buttons << link_to("Remove", connector_path(connector), method: :delete)
           @buttons << ", "
