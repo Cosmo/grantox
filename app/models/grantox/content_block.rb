@@ -32,15 +32,17 @@ module Grantox
     end
     
     def render_path
-      ContentBlock.directory.join "#{self.class.path_name.pluralize}/render.html.erb"
-    end
-    
-    def self.directory
-      Grantox::Engine.root.join("app/views/grantox/content_blocks")
+      [
+        Rails.root.join("app/views/grantox/content_blocks"),
+        Grantox::Engine.root.join("app/views/grantox/content_blocks")
+      ].map { |p| p.join("#{self.class.path_name.pluralize}/render.html.erb") }.find { |p| File.exists?(p) }
     end
     
     def self.installed
-      Dir[directory.join("*_content_blocks")].map { |c| File.basename(c) }
+      [
+        Dir[Rails.root.join("app/views/grantox/content_blocks/*_content_blocks")],
+        Dir[Grantox::Engine.root.join("app/views/grantox/content_blocks/*_content_blocks")]
+      ].flatten.map { |c| File.basename(c) }
     end
     
     def self.installed_models
