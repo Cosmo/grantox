@@ -1,7 +1,7 @@
 <li class="node node-depth-<%= section.depth %> section">
   <span class="node-line section-line">
     <span class="node-name section-name">
-      <%= section.name %>
+      <%= link_to section.name, edit_section_path(section) %>
       <small>
         Section
       </small>
