@@ -14,6 +14,13 @@ module Grantox
     
       render layout: "layouts/grantox/templates/#{@page.template_file_name}"
     end
+    
+    def publish
+      @page = Page.find(params[:id])
+      @page.touch
+      @page.save
+      redirect_to @page.path
+    end
   
     def new
       @section_id         = params[:section_id]

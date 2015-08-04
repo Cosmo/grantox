@@ -3,7 +3,11 @@ Grantox::Engine.routes.draw do
   
   resources :nodes
   resources :sections
-  resources :pages
+  resources :pages do
+    member do
+      post "publish"
+    end
+  end
   resources :links
   
   resources :connectors do
