@@ -13,29 +13,173 @@
  *= require jquery-ui
  *= require_self
  */
-
-.cms-toolbar {
-  padding: 10px;
-  border-top: 1px solid #807E80;
-  margin: 0 -10px -10px -10px;
+ 
+.cms-bar {
+  margin: -8px -8px 1.5em -8px; 
+  overflow: hidden;
+  .cms-navigation {
+    background: rgba(42,42,42,0.09);
+    height: 80px;
+    position: relative;
+    .cms-navigation-logo {
+      font-family: ProximaNova-Light;
+      font-size: 36px;
+      line-height: 44px;
+      position: absolute;
+      a {
+        color: #4A4A4A;
+        display: block;
+        line-height: 80px;
+        padding: 0 30px;
+        &:link, &:visited {
+          text-decoration: none;
+        }
+        &:hover, &:active {
+          text-decoration: underline;
+        }
+      }
+    }
+    .cms-navigation-items {
+      position: absolute;
+      top: 0;
+      right: 0;
+      ul {
+        margin: 0 30px 0 0;
+        padding: 0;
+        list-style: none;
+        li {
+          font-family: ProximaNova-Bold;
+          font-size: 24px;
+          line-height: 29px;
+          float: left;
+          a {
+            color: #9B9B9B;
+            display: block;
+            line-height: 80px;
+            padding: 0 10px;
+            &:link, &:visited {
+              text-decoration: none;
+            }
+            &:hover, &:active {
+              text-decoration: underline;
+            }
+          }
+        }
+      }
+    }
+  }
+  .cms-toolbar {
+    background: rgba(74,73,74,0.03);
+    border-bottom: 1px solid rgba(155,154,155,0.31);
+    height: 50px;
+    position: relative;
+    .cms-toolbar-visual-editor {
+      font-family: ProximaNova-Regular;
+      font-size: 14px;
+      color: #4A4A4A;
+      line-height: 17px;
+      position: absolute;
+      top: 0;
+      left: 30px;
+      line-height: 50px;
+    }
+    .cms-toolbar-page-info {
+      opacity: 0.4;
+      font-family: ProximaNova-Regular;
+      font-size: 14px;
+      color: #4A4A4A;
+      line-height: 17px;
+      position: absolute;
+      top: 0;
+      left: 200px;
+      line-height: 50px;
+    }
+    .cms-toolbar-page-actions {
+      font-family: ProximaNova-Regular;
+      font-size: 14px;
+      line-height: 17px;
+      position: absolute;
+      top: 0;
+      right: 30px;
+      line-height: 50px;
+      a {
+        line-height: 1.4em;
+        display: inline-block;
+        background: #7ED321;
+        padding: 0px 3px;
+        border-radius: 3px;
+        &:link, &:visited {
+          text-decoration: none;
+        }
+        &:hover, &:active {
+          text-decoration: underline;
+        }
+        color: #4A4A4A;
+      }
+    }
+  }
 }
 
 .cms-page-edit-toolbar {
   margin-bottom: 10px;
-  margin-left: 50px;
-  margin-right: 50px;
-  font-size: 60px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 200px;
+  font-size: 30px;
+  height: 30px;
+  line-height: 30px;
   text-align: center;
-  font-weight: bold;
   a {
-    border: 1px solid black;
-    border-radius: 20px;
+    border-radius: 3px;
     text-decoration: none;
     display: block;
-    background-color: #CCCCCC;
+    background: rgba(74,73,74,0.03);
+    box-shadow: 0px 1px 0px 0px rgba(155,154,155,0.31);
+    color: #999999;
     &:hover {
-      background-color: #000000;
-      color: #FFFFFF;
+      background: rgba(42,42,42,0.09);
+    }
+  }
+}
+
+.cms-edit-border {
+  transition: box-shadow 0.25s;
+  border: 1px solid rgba(155,154,155,0.31);
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0.0);
+  margin-bottom: 1.5em;
+  
+  cursor: move; /* fallback if grab cursor is unsupported */
+  cursor: grab;
+  cursor: -moz-grab;
+  cursor: -webkit-grab;
+  
+  &:active {
+    cursor: grabbing;
+    cursor: -moz-grabbing;
+    cursor: -webkit-grabbing;
+  }
+  
+  .cms-edit-toolbar {
+    position: absolute;
+    background-color: #CCCCCC;
+    line-height: 2em;
+    height: 0;
+    overflow: hidden;
+    transition: background-color 0.25s, height 0.25s;
+    .cms-edit-toolbar-button {
+      
+    }
+  }
+  &:hover {
+    background-color: #F1F1F1;
+    animation-name: edit-border-shadow;
+    animation-duration: 1.0s;
+    animation-timing-function: linear;
+    animation-delay: 0;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    .cms-edit-toolbar {
+      height: 2em;
     }
   }
 }
@@ -66,47 +210,6 @@
     to {
       box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
     }
-}
-
-.cms-edit-border {
-  transition: box-shadow 0.25s;
-  border: 1px solid #CCCCCC;
-  box-shadow: 0 0 0 rgba(0, 0, 0, 0.0);
-  margin-bottom: 1.5em;
-  
-  cursor: move; /* fallback if grab cursor is unsupported */
-  cursor: grab;
-  cursor: -moz-grab;
-  cursor: -webkit-grab;
-  
-  &:active {
-    cursor: grabbing;
-    cursor: -moz-grabbing;
-    cursor: -webkit-grabbing;
-  }
-  
-  .cms-edit-toolbar {
-    background-color: #CCCCCC;
-    line-height: 2em;
-    height: 0;
-    overflow: hidden;
-    transition: background-color 0.25s, height 0.25s;
-    .cms-edit-toolbar-button {
-      
-    }
-  }
-  &:hover {
-    background-color: #F1F1F1;
-    animation-name: edit-border-shadow;
-    animation-duration: 1.0s;
-    animation-timing-function: linear;
-    animation-delay: 0;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-    .cms-edit-toolbar {
-      height: 2em;
-    }
-  }
 }
 
 ul.nodes {
