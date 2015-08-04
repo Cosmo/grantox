@@ -6,19 +6,15 @@
     <%= csrf_meta_tag %>
     <%= cms_head %>
     <%= yield :html_head %>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/Sortable/1.2.0/Sortable.min.js"></script>
     <%= stylesheet_link_tag    "grantox/application", media: "all", "data-turbolinks-track" => true %>
     <%= javascript_include_tag "grantox/application", "data-turbolinks-track" => true %>
   </head>
   <body>
-    
-    <div style="background-color: #CDCBCD; padding: 10px; margin: -8px -8px 1.5em -8px; overflow: hidden; border-bottom: 1px solid #929192;">
+    <div class="cms-bar">
       <%= render file: "grantox/cms/navigation.html.erb" %>
       <%= cms_toolbar %>
     </div>
-    
     <%= render_menu %>
     <%= container(:main) %>
-    
   </body>
 </html>
