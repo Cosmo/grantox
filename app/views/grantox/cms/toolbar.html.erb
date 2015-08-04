@@ -1,12 +1,20 @@
 <div class="cms-toolbar">
-  visual edit mode:
-  <% if session[:visual_edit] %>
-    on/<a href="/visual_edit_mode/?state=off">off</a>
-  <% else %>
-    <a href="/visual_edit_mode/?state=on">on</a>/off
-  <% end %>,
-  version: <%= @page.version %>,
-  name: <%= @page.name %>,
-  title: <%= @page.title || "<em>empty</em>".html_safe %>,
-  <%= link_to "Edit", edit_page_path(@page) %>
+  <div class="cms-toolbar-visual-editor">
+    <% if session[:visual_edit] %>
+      on/<a href="/visual_edit_mode/?state=off">off</a>
+    <% else %>
+      <a href="/visual_edit_mode/?state=on">on</a>/off
+    <% end %>
+    Visual Editor
+  </div>
+  
+  <div class="cms-toolbar-page-info">
+    <%= @page.name %>
+    <%= @page.title.present? ? "(#{@page.title})" : "" %>
+    v<%= @page.version %>
+  </div>
+  
+  <div class="cms-toolbar-page-actions">
+    <%= link_to "Edit", edit_page_path(@page) %>
+  </div>
 </div>

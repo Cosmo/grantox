@@ -1,7 +1,11 @@
-<p class="cms-navigation" style="margin: 0; padding: 0; margin-bottom: 0.5em;">
-  <%= link_to "Home", root_path %>
-  •
-  <%= link_to "Sitemap", nodes_path %>
-  •
-  <%= link_to "Content Library", content_blocks_path %>
-</p>
+<div class="cms-navigation">
+  <div class="cms-navigation-logo">
+    <%= link_to "Grantox", root_path %>
+  </div>
+  <div class="cms-navigation-items">
+    <ul>
+      <li><%= link_to "Library", content_blocks_path %></li>
+      <li><%= link_to "Sitemap", nodes_path %></li>
+    </ul>
+  </div>
+</div>
