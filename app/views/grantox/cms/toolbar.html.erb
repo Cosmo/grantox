@@ -16,6 +16,7 @@
   
   <div class="cms-toolbar-page-actions">
     <%= link_to "Shrink", "#", id: "cms-toolbar-page-actions-shrink" %>
+    <%= link_to "Preview", "?preview=true" %>
     <%= link_to "Publish", publish_page_path(@page), method: "post" %>
     <%= link_to "Edit", edit_page_path(@page) %>
   </div>

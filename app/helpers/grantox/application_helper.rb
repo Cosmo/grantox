@@ -5,7 +5,7 @@ module Grantox
       output          = []
       output_suffixes = []
 
-      if @page.present? && visual_edit
+      if @page.present? && (visual_edit || preview)
         output_prefixes << connector_toolbar(container_name, @page)
         @page.connectors.where(container: container_name.to_s).asc(:position).each do |connector|
           if visual_edit
@@ -17,11 +17,18 @@ module Grantox
         end
         output_suffixes << connector_toolbar(container_name, @page)
         
-        ActionController::Base.helpers.raw([
-          output_prefixes.join(""), 
-          content_tag(:div, ActionController::Base.helpers.raw(output.join("")), class: "content-blocks"),
-          output_suffixes.join("")
-        ].join(""))
+        if visual_edit
+          ActionController::Base.helpers.raw([
+            output_prefixes.join(""), 
+            content_tag(:div, ActionController::Base.helpers.raw(output.join("")), class: "content-blocks"),
+            output_suffixes.join("")
+          ].join(""))
+        else
+          ActionController::Base.helpers.raw([
+            output.join("")
+          ].join(""))
+        end
+        
       elsif @page.present? && @page.views_cache[container_name].present?
         ActionController::Base.helpers.raw(@page.views_cache[container_name])
       else

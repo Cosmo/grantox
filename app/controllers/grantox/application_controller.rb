@@ -4,6 +4,11 @@ module Grantox
       session[:visual_edit]
     end
     helper_method :visual_edit
+    
+    def preview
+      params[:preview]
+    end
+    helper_method :preview
 
     def visual_edit_mode
       session[:visual_edit] = (params[:state] == "on")
