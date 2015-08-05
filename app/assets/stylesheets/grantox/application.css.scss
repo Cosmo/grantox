@@ -94,6 +94,27 @@ body {
       top: 0;
       left: 30px;
       line-height: 50px;
+      
+      a, span {
+        line-height: 1.4em;
+        display: inline-block;
+        padding: 0px 10px;
+        border-radius: 3px;
+        color: #4A4A4A;
+      }
+      a {
+        background-color: #7ED321;
+        font-weight: bold;
+        &:link, &:visited {
+          text-decoration: none;
+        }
+        &:hover, &:active {
+          text-decoration: underline;
+        }
+      }
+      span {
+        background-color: #D0EDB4;
+      }
     }
     .cms-toolbar-page-info {
       opacity: 0.4;
@@ -289,8 +310,6 @@ ul.nodes {
       }
     }
     
-    
-    
     .node-line {
       display: block;
       padding: 5px;
@@ -305,7 +324,7 @@ ul.nodes {
   }
   .section {
     .section-line {
-      background-color: #6DCCF8;
+      background-color: #FDC700;
       .section-name {
       }
       .section-options {
@@ -314,7 +333,7 @@ ul.nodes {
   }
   .page {
     .page-line {
-      background-color: #FDC700;
+      background-color: #6DCCF8;
       .page-name {
       }
       .page-options {
