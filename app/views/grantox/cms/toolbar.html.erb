@@ -1,9 +1,11 @@
 <div class="cms-toolbar">
   <div class="cms-toolbar-visual-editor">
     <% if session[:visual_edit] %>
-      on/<a href="/visual_edit_mode/?state=off">off</a>
+      <span class="cms-toolbar-visual-editor-on">on</span>
+      <a class="cms-toolbar-visual-editor-off" href="/visual_edit_mode/?state=off">off</a>
     <% else %>
-      <a href="/visual_edit_mode/?state=on">on</a>/off
+      <a class="cms-toolbar-visual-editor-on" href="/visual_edit_mode/?state=on">on</a>
+      <span class="cms-toolbar-visual-editor-off">off</span>
     <% end %>
     Visual Editor
   </div>
