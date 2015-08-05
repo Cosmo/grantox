@@ -31,3 +31,18 @@ $(function() {
   });
   $("#content-blocks").disableSelection();
 });
+
+$(function() {
+  $("#cms-toolbar-page-actions-shrink").on("click", function(event) {
+    if($("body").hasClass("shrunken-connectables")) {
+      $(this).removeClass("cms-toolbar-page-actions-shrink-active");
+      $("body").removeClass("shrunken-connectables");
+      $(".cms-edit-border").css({ height: "auto" });
+    } else {
+      $(this).addClass("cms-toolbar-page-actions-shrink-active");
+      $("body").addClass("shrunken-connectables");
+      $(".cms-edit-border").animate({ height: "120px" });
+    }
+    event.preventDefault();
+  });
+})

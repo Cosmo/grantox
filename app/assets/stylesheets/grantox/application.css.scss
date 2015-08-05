@@ -105,9 +105,16 @@
       a {
         line-height: 1.4em;
         display: inline-block;
-        background: #7ED321;
         padding: 0px 3px;
         border-radius: 3px;
+        color: #4A4A4A;
+        background-color: #7ED321;
+        &.cms-toolbar-page-actions-shrink {
+          &.cms-toolbar-page-actions-shrink-active {
+            color: #FFFFFF;
+            background-color: black;
+          }
+        }
         &:link, &:visited {
           text-decoration: none;
         }
