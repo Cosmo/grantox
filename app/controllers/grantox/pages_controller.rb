@@ -11,8 +11,14 @@ module Grantox
         @section = Section.where(path: path).first
         @page = @section.children.to_a.find { |child| child.class == Page }
       end
-    
+      
       render layout: "layouts/grantox/templates/#{@page.template_file_name}"
+      
+      # if @page.present?
+      #   render layout: "layouts/grantox/templates/#{@page.template_file_name}"
+      # else
+      #   render :text => "Page not found."
+      # end
     end
     
     def publish
