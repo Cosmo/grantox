@@ -46,7 +46,7 @@ module Grantox
       [
         Dir[Rails.root.join("app/views/grantox/content_blocks/*_content_blocks")],
         Dir[Grantox::Engine.root.join("app/views/grantox/content_blocks/*_content_blocks")]
-      ].flatten.map { |c| File.basename(c) }
+      ].flatten.map { |c| File.basename(c) }.uniq
     end
     
     def self.installed_models
