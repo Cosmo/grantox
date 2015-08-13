@@ -2,7 +2,7 @@ module Grantox
   class ContentBlock
     include Mongoid::Document
     include Mongoid::Versioning
-
+    
     embeds_many :attachments, as: :attachable, class_name: "Grantox::Attachment"
     has_many :connectors, as: :connectable, class_name: "Grantox::Connector"
 
@@ -17,9 +17,12 @@ module Grantox
     end
     
     def render_view
-      ActionController::Base.helpers.render :file => render_path, :locals => { content_block: self }
+      if render_path
+        ActionController::Base.helpers.render :file => render_path, :locals => { content_block: self }
+      else
+        "TEMPLATE MISSING: #{self.class.path_name.pluralize}, id:#{self.id}"
+      end
     end
-    
     
     
     def self.path_name
