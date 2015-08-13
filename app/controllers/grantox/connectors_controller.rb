@@ -13,7 +13,12 @@ module Grantox
       @connector    = Connector.new(container: @container, page_id: @page_id)
     
       @connectables = ContentBlock.installed_models
-      @content_blocks = ContentBlock.all
+      
+      if params[:model_name].present?
+        @content_blocks = ContentBlock.model_name_from_string(params[:model_name]).page(params[:page]).per(params[:per])
+      else
+        @content_blocks = ContentBlock.page(params[:page]).per(params[:per])
+      end
     end
     
     def move

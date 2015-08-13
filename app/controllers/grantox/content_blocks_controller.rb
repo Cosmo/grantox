@@ -9,7 +9,9 @@ module Grantox
     end
   
     def index
-      @content_blocks = ContentBlock.all
+      if params[:model_name].present?
+        @content_blocks = ContentBlock.model_name_from_string(params[:model_name]).page(params[:page]).per(params[:per])
+      end
     end
   
     def new
