@@ -20,3 +20,6 @@ gem 'mongoid-tree', :require => 'mongoid/tree'
 gem "RedCloth"
 gem 'bootstrap-sass', '~> 3.3.5'
 gem 'sass-rails', '>= 3.2'
+
+gem 'kaminari'
+gem 'bootstrap-kaminari-views'
