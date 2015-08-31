@@ -1,14 +1,26 @@
-<%= form_for @content_block, html: { class: "form-horizontal" } do |f| %>
-  <%= render partial: @content_block.form_path, locals: { f: f } %>
-  
-  <% if @container.present? && @page_id.present? %>
-    <%= hidden_field_tag :container, @container %>
-    <%= hidden_field_tag :page_id, @page_id %>
-  <% end %>
-  
-  <div class="form-group">
-    <div class="col-sm-offset-2 col-sm-10">
-      <%= f.submit nil, class: "btn btn-default" %>
+<%= form_for @content_block do |f| %>
+  <div class="row">
+    <div class="col-md-9 col-sm-8">
+      
+      <div class="panel panel-default">
+        <div class="panel-body">
+          
+          <%= render partial: @content_block.form_path, locals: { f: f } %>
+          <% if @container.present? && @page_id.present? %>
+            <%= hidden_field_tag :container, @container %>
+            <%= hidden_field_tag :page_id, @page_id %>
+          <% end %>
+          
+        </div>
+      </div>
+      
+    </div>
+    <div class="col-md-3 col-sm-4">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <%= f.submit "Save changes", class: "btn btn-primary" %>
+        </div>
+      </div>
     </div>
   </div>
 <% end %>

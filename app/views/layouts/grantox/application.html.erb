@@ -7,12 +7,41 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
-    <div class="cms-bar">
-      <%= render file: "grantox/cms/navigation.html.erb" %>
+    
+    <div class="container-fluid">
+      <h1>
+        <%= link_to "Grantox", root_path %>
+      </h1>
     </div>
     
-    <div class="container" style="padding-top: 30px;">
-      <%= yield %>
+    <div style="position: relative;">
+      <div style="position: absolute; bottom: 0; top: 30px; left: 15px; width: 120px;">
+        <div>
+
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <%= link_to "Library", content_blocks_path %>
+            </div>
+
+            <div class="list-group">
+              <% Grantox::ContentBlock.installed_models.each do |model_name| %>
+                <%= link_to model_name.display_name, content_blocks_path(model_name: model_name), class: "list-group-item #{model_name.to_s == params[:model_name] ? "active" : ""}" %>
+              <% end %>
+            </div>
+
+            <div class="panel-body">
+              <%= link_to "Sitemap", nodes_path %>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+      <div class="container-fluid" style="padding-top: 30px; padding-left: 170px;">
+        <%= yield %>
+      </div>
     </div>
+    
   </body>
 </html>

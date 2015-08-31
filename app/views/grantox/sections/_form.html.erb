@@ -1,15 +1,13 @@
-<div>
-  <%= f.label :name %>
-  <br />
-  <%= f.text_field :name %>
+<div class="form-group">
+  <%= f.label :name, class: "control-label" %>
+  <%= f.text_field :name, class: "form-control" %>
 </div>
 
 <hr />
 
-<div>
-  <%= f.label :path %>
-  <br />
-  <%= f.text_field :path, data: { path: @section.path } %>
+<div class="form-group">
+  <%= f.label :path, class: "control-label" %>
+  <%= f.text_field :path, data: { path: @section.path }, class: "form-control" %>
 </div>
 
 <script type="text/javascript" charset="utf-8">

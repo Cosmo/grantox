@@ -14,6 +14,9 @@
  *= require_self
  */
 
+$body-bg:    #F1F1F1;
+$brand-primary: #52A304;
+
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
@@ -250,94 +253,4 @@ body {
     to {
       box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
     }
-}
-
-ul.nodes {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  small {
-    opacity: 0.4;
-  }
-  li {
-    margin: 0;
-    padding: 0;
-    ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
-  }
-  .node {
-    &.node-depth-0.section {
-      .node-line {
-        padding-left: 5px;
-      }
-      ul .node-line {
-        padding-left: 25px;
-      }
-    }
-    &.node-depth-1.section {
-      .node-line {
-        padding-left: 25px;
-      }
-      ul .node-line {
-        padding-left: 45px;
-      }
-    }
-    &.node-depth-2.section {
-      .node-line {
-        padding-left: 45px;
-      }
-      ul .node-line {
-        padding-left: 65px;
-      }
-    }
-    &.node-depth-3.section {
-      .node-line {
-        padding-left: 65px;
-      }
-      ul .node-line {
-        padding-left: 85px;
-      }
-    }
-    &.node-depth-4.section {
-      .node-line {
-        padding-left: 85px;
-      }
-      ul .node-line {
-        padding-left: 105px;
-      }
-    }
-    
-    .node-line {
-      display: block;
-      padding: 5px;
-      margin-bottom: 1px;
-      .node-name {
-        display: block;
-      }
-      .node-options {
-        display: block;
-      }
-    }
-  }
-  .section {
-    .section-line {
-      background-color: #FDC700;
-      .section-name {
-      }
-      .section-options {
-      }
-    }
-  }
-  .page {
-    .page-line {
-      background-color: #6DCCF8;
-      .page-name {
-      }
-      .page-options {
-      }
-    }
-  }
 }
